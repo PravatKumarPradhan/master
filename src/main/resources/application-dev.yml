@@ -1,0 +1,29 @@
+# Postgres integration config
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Master
+    username: postgres
+    password: root
+    driver-class-name : org.postgresql.Driver
+
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+# Eureka integration config
+eureka:
+  instance:
+    hostname: localhost
+    port: 8761
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka
